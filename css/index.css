@@ -1,0 +1,758 @@
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+#rd1, #rd2, #rd3, #rd4 {
+  display: none;
+}
+
+/* container for background slides */
+.containerSlide {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  background-position: center;
+  background-size: cover;
+  position: fixed;
+}
+
+.containerSlide > #slider {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  /* container for four images */
+}
+
+.containerSlide > #slider > figure {
+  position: relative;
+  width: 400%;
+  height: 100%;
+  margin: 0;
+  left: 0;
+  text-align: left;
+  font-size: 0;
+  -webkit-animation: 30s slidy infinite;
+          animation: 30s slidy infinite;
+  /* images */
+}
+
+.containerSlide > #slider > figure > .img1, .containerSlide > #slider > figure .img2, .containerSlide > #slider > figure .img3, .containerSlide > #slider > figure .img4 {
+  width: 25%;
+  height: 100%;
+  position: relative;
+  float: left;
+  background-size: cover;
+}
+
+.containerSlide > #slider > figure > .img1 {
+  background-image: url(../images/background01.jpg);
+  float: 25%;
+}
+
+.containerSlide > #slider > figure > .img1:hover {
+  -webkit-filter: contrast(1.6);
+          filter: contrast(1.6);
+}
+
+.containerSlide > #slider > figure > .img2 {
+  background-image: url(../images/background02.jpeg);
+  left: 50%;
+}
+
+.containerSlide > #slider > figure > .img2:hover {
+  -webkit-filter: contrast(1.4);
+          filter: contrast(1.4);
+}
+
+.containerSlide > #slider > figure > .img3 {
+  background-image: url(../images/background05.jpg);
+  left: 75%;
+}
+
+.containerSlide > #slider > figure > .img3:hover {
+  -webkit-filter: contrast(1.9);
+          filter: contrast(1.9);
+}
+
+.containerSlide > #slider > figure > .img4 {
+  background-image: url(../images/background04.jpeg);
+  left: 100%;
+  background-position: center;
+}
+
+.containerSlide > #slider > figure > .img4:hover {
+  -webkit-filter: sepia(0.3);
+          filter: sepia(0.3);
+}
+
+.container {
+  height: 100vh;
+  width: 100vw;
+  background-position: center;
+  background-size: cover;
+  overflow-x: hidden;
+  position: relative;
+  display: -ms-grid;
+  display: grid;
+      grid-template-areas: 'progressbar inputform' 'headline inputform';
+  -ms-grid-columns: 50% 50%;
+      grid-template-columns: 50% 50%;
+  -ms-grid-rows: 33% 67%;
+      grid-template-rows: 33% 67%;
+}
+
+.container > .containerProgress {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: progressbar;
+}
+
+.container > .containerProgress > .progress {
+  position: relative;
+  width: 65%;
+  height: 40px;
+  margin: 133px auto;
+  -webkit-transform: translateX(17.5%);
+          transform: translateX(17.5%);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background: rgba(170, 167, 167, 0.76);
+  border-radius: 4px;
+  padding: 5px;
+  text-align: center;
+  -webkit-transition: 0.7s linear;
+  transition: 0.7s linear;
+  -webkit-box-shadow: 5px 5px 5px gray, -3px -3px 8px gray;
+          box-shadow: 5px 5px 5px gray, -3px -3px 8px gray;
+}
+
+.container > .containerProgress > .progress > .p1 {
+  position: relative;
+  width: 33.33%;
+  height: 30px;
+  background-color: #07df07;
+  display: none;
+  z-index: -1;
+  color: white;
+  text-shadow: 2px 2px 1px #2f2f2f;
+  padding: 5px;
+  -webkit-clip-path: polygon(92.5% 0%, 100% 50%, 92.5% 100%, 0% 100%, 0% 0%, 0% 0%);
+          clip-path: polygon(92.5% 0%, 100% 50%, 92.5% 100%, 0% 100%, 0% 0%, 0% 0%);
+}
+
+.container > .containerProgress > .progress > .p2 {
+  position: relative;
+  width: 33.33%;
+  height: 30px;
+  background-color: #01a101;
+  display: none;
+  z-index: -1;
+  color: white;
+  text-shadow: 2px 2px 1px black;
+  padding: 5px;
+  -webkit-clip-path: polygon(92.5% 0%, 100% 50%, 92.5% 100%, 0% 100%, 10% 50%, 0% 0%);
+          clip-path: polygon(92.5% 0%, 100% 50%, 92.5% 100%, 0% 100%, 10% 50%, 0% 0%);
+}
+
+.container > .containerProgress > .progress > .p3 {
+  position: relative;
+  width: 33.33%;
+  height: 30px;
+  background-color: blue;
+  display: none;
+  z-index: -1;
+  color: white;
+  text-shadow: 2px 2px 1px #2f2f2f;
+  padding: 5px;
+  -webkit-clip-path: polygon(92.5% 0%, 100% 50%, 92.5% 100%, 0% 100%, 10% 50%, 0% 0%);
+          clip-path: polygon(92.5% 0%, 100% 50%, 92.5% 100%, 0% 100%, 10% 50%, 0% 0%);
+}
+
+.container > .containerProgress > .progress > .clip {
+  width: 9%;
+  height: 25px;
+  margin: 2.5px;
+  position: absolute;
+  left: 0;
+  -webkit-clip-path: polygon(75% 0%, 100% 50%, 75% 100%, 0% 100%, 25% 50%, 0% 0%);
+          clip-path: polygon(75% 0%, 100% 50%, 75% 100%, 0% 100%, 25% 50%, 0% 0%);
+  background-color: #0d0d0e;
+  border-radius: 5px 5px;
+  z-index: 10;
+  -webkit-transition: 0.7s linear;
+  transition: 0.7s linear;
+}
+
+.container > .containerProgress > .progress > .progress-bar {
+  -webkit-clip-path: polygon(97.5% 0%, 100% 50%, 97.5% 100%, 0% 100%, 0% 0%, 0% 0%);
+          clip-path: polygon(97.5% 0%, 100% 50%, 97.5% 100%, 0% 100%, 0% 0%, 0% 0%);
+  position: absolute;
+  height: 30px;
+  border-radius: 4px;
+  background-image: linear-gradient(45deg, rgba(236, 207, 207, 0.3), rgba(255, 255, 255, 0.05));
+  -webkit-transition: 0.7s linear;
+  transition: 0.7s linear;
+  -webkit-transition-property: width,background-color;
+  transition-property: width,background-color;
+  -webkit-box-shadow: 0 0 1px 1px rgba(179, 178, 178, 0.25), inset 0 1px rgba(255, 255, 255, 0.1);
+          box-shadow: 0 0 1px 1px rgba(179, 178, 178, 0.25), inset 0 1px rgba(255, 255, 255, 0.1);
+}
+
+.container > .text {
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  grid-area: headline;
+  width: 65%;
+  margin: 65px auto;
+  -webkit-transform: translateX(17.5%);
+          transform: translateX(17.5%);
+  text-align: center;
+  z-index: 1;
+}
+
+.container > .text > .par1 > span {
+  color: #8ee4eb;
+  font-size: 50px;
+  font-style: italic;
+  font-weight: bold;
+  font-family: 'Kaushan Script', cursive;
+  -webkit-animation: animate 2s linear infinite;
+          animation: animate 2s linear infinite;
+}
+
+.container > .text > .par1 > span:nth-child(1) {
+  -webkit-animation-delay: 0s;
+          animation-delay: 0s;
+}
+
+.container > .text > .par1 > span:nth-child(2) {
+  -webkit-animation-delay: 0.25s;
+          animation-delay: 0.25s;
+}
+
+.container > .text > .par1 > span:nth-child(3) {
+  -webkit-animation-delay: .5s;
+          animation-delay: .5s;
+}
+
+@-webkit-keyframes animate {
+  0%, 100% {
+    color: #78abe6;
+    -webkit-filter: blur(2px);
+            filter: blur(2px);
+    text-shadow: 0 0 30px #00b3ff, 0 0 60px #00b3ff, 0 0 100px #00b3ff;
+  }
+  5%, 95% {
+    color: #b1eff5;
+    -webkit-filter: blur(0);
+            filter: blur(0);
+    text-shadow: 0 0 10px black;
+  }
+}
+
+@keyframes animate {
+  0%, 100% {
+    color: #78abe6;
+    -webkit-filter: blur(2px);
+            filter: blur(2px);
+    text-shadow: 0 0 30px #00b3ff, 0 0 60px #00b3ff, 0 0 100px #00b3ff;
+  }
+  5%, 95% {
+    color: #b1eff5;
+    -webkit-filter: blur(0);
+            filter: blur(0);
+    text-shadow: 0 0 10px black;
+  }
+}
+
+.container > .text > .par2 {
+  color: #a0a563;
+  font-family: 'Allura', cursive;
+  font-size: 45px;
+  font-weight: bold;
+  font-style: italic;
+  text-shadow: 3px 3px 3px black;
+}
+
+.container > .gridForm {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 2;
+  -ms-grid-column: 2;
+  grid-area: inputform;
+  position: relative;
+}
+
+.container > .gridForm > .formBox {
+  position: absolute;
+  width: 62%;
+  height: 550px;
+  right: 50%;
+  top: 14%;
+  -webkit-transform: translateX(50%);
+          transform: translateX(50%);
+  padding: 5px;
+  background-color: rgba(48, 47, 47, 0.664);
+  padding: 4px 12px;
+  border-radius: 13px;
+  -webkit-box-shadow: 0 0 3px 2px rgba(122, 119, 119, 0.616);
+          box-shadow: 0 0 3px 2px rgba(122, 119, 119, 0.616);
+  overflow: hidden;
+  display: none;
+  -webkit-transition: right 1s;
+  transition: right 1s;
+}
+
+.container > .gridForm > .formBox > h1 {
+  font-size: 40px;
+  color: #a0a563;
+  text-shadow: 2px 2px 2px white;
+  text-align: center;
+  margin-top: 53px;
+}
+
+.container > .gridForm > .formBox > .inputGroup {
+  width: 83%;
+  top: 30%;
+  position: absolute;
+}
+
+.container > .gridForm > .formBox > .inputGroup > label {
+  font-size: 20px;
+  margin-left: 20px;
+  color: #8cf078;
+}
+
+.container > .gridForm > .formBox > .inputGroup > input[type="text"] {
+  margin: 1px 20px;
+  width: 80%;
+  height: 30px;
+  color: #d4ec49;
+  background: transparent;
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+  border-bottom: outset;
+  background-color: rgba(185, 164, 164, 0.637);
+}
+
+.container > .gridForm > .formBox > .inputGroup > ::-webkit-input-placeholder {
+  color: #a8ddf1;
+}
+
+.container > .gridForm > .formBox > .inputGroup > :-ms-input-placeholder {
+  color: #a8ddf1;
+}
+
+.container > .gridForm > .formBox > .inputGroup > ::-ms-input-placeholder {
+  color: #a8ddf1;
+}
+
+.container > .gridForm > .formBox > .inputGroup > ::placeholder {
+  color: #a8ddf1;
+}
+
+.container > .gridForm > .formBox > .inputGroup > .male {
+  font-size: 17px;
+}
+
+.container > .gridForm > .formBox > .rd1 {
+  padding: 4px 12px;
+  border-radius: 13px;
+  -webkit-box-shadow: 0 0 3px 2px rgba(122, 119, 119, 0.616);
+          box-shadow: 0 0 3px 2px rgba(122, 119, 119, 0.616);
+  color: white;
+  font-size: 22px;
+  font-weight: bold;
+  float: right;
+  margin-right: 10px;
+  margin-left: 15px;
+  margin-top: 390px;
+  -webkit-box-shadow: inset -20px -8px 8px 15px #6c8f4b;
+          box-shadow: inset -20px -8px 8px 15px #6c8f4b;
+  text-shadow: 3px 3px 2px #020202;
+  background: transparent;
+}
+
+.container > .gridForm > .formBox > .pre1 {
+  padding: 4px 12px;
+  border-radius: 13px;
+  -webkit-box-shadow: 0 0 3px 2px rgba(122, 119, 119, 0.616);
+          box-shadow: 0 0 3px 2px rgba(122, 119, 119, 0.616);
+  color: rgba(255, 255, 255, 0.835);
+  font-size: 22px;
+  font-weight: bold;
+  float: right;
+  margin-top: 390px;
+  -webkit-box-shadow: inset -20px -8px 8px 15px #6c8f4b;
+          box-shadow: inset -20px -8px 8px 15px #6c8f4b;
+  text-shadow: 3px 3px 2px #020202;
+}
+
+.container > .gridForm > .formBox > img {
+  width: 150px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.container > .gridForm > .formBox > .loader {
+  width: 129px;
+  height: 129px;
+  margin: 108px auto;
+  border-radius: 50%;
+  background: linear-gradient(2deg, transparent, transparent 90%, #e5f403);
+  -webkit-animation: animat 2s linear infinite;
+          animation: animat 2s linear infinite;
+}
+
+@-webkit-keyframes animat {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+    -webkit-filter: hue-rotate(0deg);
+            filter: hue-rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+    -webkit-filter: hue-rotate(360deg);
+            filter: hue-rotate(360deg);
+  }
+}
+
+@keyframes animat {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+    -webkit-filter: hue-rotate(0deg);
+            filter: hue-rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+    -webkit-filter: hue-rotate(360deg);
+            filter: hue-rotate(360deg);
+  }
+}
+
+.container > .gridForm > .formBox > h2 {
+  font-size: 25px;
+  color: #a0a563;
+  text-shadow: 3px 4px 3px #020202;
+  text-align: center;
+  margin-top: -62px;
+}
+
+.container > .flug > img {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  top: 40vh;
+  -webkit-animation-name: FBW5;
+          animation-name: FBW5;
+  -webkit-animation-duration: 6s;
+          animation-duration: 6s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+}
+
+@-webkit-keyframes FBW5 {
+  0% {
+    width: 120px;
+    left: -15px;
+    top: 20vh;
+  }
+  100% {
+    width: 300px;
+    left: 60%;
+    top: -20vh;
+  }
+}
+
+@keyframes FBW5 {
+  0% {
+    width: 120px;
+    left: -15px;
+    top: 20vh;
+  }
+  100% {
+    width: 300px;
+    left: 60%;
+    top: -20vh;
+  }
+}
+
+#rd1:checked ~ .containerSlide > #slider > figure > div {
+  left: 0%;
+  -webkit-transition: all 1s ease-in-out;
+  transition: all 1s ease-in-out;
+}
+
+#rd2:checked ~ .containerSlide > #slider > figure > div {
+  left: -25%;
+  -webkit-transition: all 1s ease-in-out;
+  transition: all 1s ease-in-out;
+}
+
+#rd3:checked ~ .containerSlide > #slider > figure > div {
+  left: -50%;
+  -webkit-transition: all 1s ease-in-out;
+  transition: all 1s ease-in-out;
+}
+
+#rd4:checked ~ .containerSlide > #slider > figure > div {
+  left: -75%;
+  -webkit-transition: all 1s ease-in-out;
+  transition: all 1s ease-in-out;
+}
+
+#rd2:checked ~ .container > .containerProgress > .progress > .n1 {
+  display: block;
+  z-index: 8;
+  -webkit-transition: 0.7s linear;
+  transition: 0.7s linear;
+  background-color: #e04343;
+  -webkit-animation-name: bel;
+          animation-name: bel;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+  -webkit-animation-direction: alternate;
+          animation-direction: alternate;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+}
+
+@-webkit-keyframes bel {
+  0% {
+    background-color: #f80101;
+  }
+  100% {
+    background-color: #a30101;
+  }
+}
+
+@keyframes bel {
+  0% {
+    background-color: #f80101;
+  }
+  100% {
+    background-color: #a30101;
+  }
+}
+
+#rd3:checked ~ .container > .containerProgress > .progress > .n2 {
+  background-color: #fafa4e;
+  display: block;
+  z-index: 8;
+  -webkit-transition: 0.7s linear;
+  transition: 0.7s linear;
+  -webkit-animation-name: bela;
+          animation-name: bela;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+  -webkit-animation-direction: alternate;
+          animation-direction: alternate;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+}
+
+@-webkit-keyframes bela {
+  0% {
+    background-color: #e7e705;
+  }
+  100% {
+    background-color: #f3a806;
+  }
+}
+
+@keyframes bela {
+  0% {
+    background-color: #e7e705;
+  }
+  100% {
+    background-color: #f3a806;
+  }
+}
+
+#rd4:checked ~ .container > .containerProgress > .progress > .n2 {
+  display: block;
+  z-index: 8;
+  -webkit-transition: 0.7s linear;
+  transition: 0.7s linear;
+}
+
+#rd4:checked ~ .container > .containerProgress > .progress > .n1 {
+  display: block;
+  z-index: 8;
+}
+
+#rd3:checked ~ .container > .containerProgress > .progress > .p1 {
+  display: block;
+  z-index: 8;
+  -webkit-transition: 0.7s linear;
+  transition: 0.7s linear;
+}
+
+#rd3:checked ~ .container > .containerProgress > .progress > .p2 {
+  display: block;
+  z-index: 4;
+}
+
+#rd4:checked ~ .container > .containerProgress > .progress > .p3 {
+  display: block;
+  background-color: green;
+  z-index: 4;
+}
+
+#rd1:checked ~ .container > .containerProgress .progress {
+  width: 0;
+  background-color: #fdf8f600;
+  height: 0;
+}
+
+#rd1:checked ~ .container > .containerProgress > .progress > .clip {
+  display: none;
+  background-color: rgba(255, 236, 247, 0);
+  border: 2px solid rgba(204, 116, 116, 0.295);
+}
+
+#rd2:checked ~ .container > .containerProgress > .progress > .clip {
+  left: 23.5%;
+  background-color: rgba(102, 19, 4, 0.719);
+  border: 1px solid rgba(20, 20, 20, 0.021);
+}
+
+#rd3:checked ~ .container > .containerProgress > .progress > .clip {
+  left: 56.0%;
+  background-color: rgba(170, 127, 10, 0.89);
+  border: 1px solid rgba(2, 2, 2, 0.014);
+}
+
+#rd4:checked ~ .container > .containerProgress > .progress > .clip {
+  left: 88.5%;
+  background-color: rgba(5, 75, 3, 0.822);
+  border: 1px solid rgba(0, 0, 0, 0.082);
+}
+
+#rd1:checked ~ .container > .gridForm > #formBox1 {
+  display: block;
+}
+
+#rd2:checked ~ .container > .gridForm > #formBox1 {
+  display: block;
+  right: -50%;
+}
+
+#rd2:checked ~ .container > .gridForm > #formBox2 {
+  display: block;
+}
+
+#rd3:checked ~ .container > .gridForm > #formBox2 {
+  display: block;
+  right: -50%;
+}
+
+#rd3:checked ~ .container > .gridForm > #formBox3 {
+  display: block;
+}
+
+#rd4:checked ~ .container > .gridForm > #formBox3 {
+  display: block;
+  right: -50%;
+}
+
+#rd4:checked ~ .container > .gridForm > #formBox4 {
+  display: block;
+}
+
+@media screen and (max-width: 768px) {
+  .containerSlide > #slider > figure > .img1, .img2, .img3, .img4 {
+    -webkit-filter: grayscale(70%);
+            filter: grayscale(70%);
+  }
+  .container {
+        grid-template-areas: 'headline' 'progressbar' 'inputform';
+    -ms-grid-columns: 100%;
+        grid-template-columns: 100%;
+    -ms-grid-rows: 15% 15% 70%;
+        grid-template-rows: 15% 15% 70%;
+  }
+  .container > .containerProgress > .progress {
+    -webkit-transition: none;
+    transition: none;
+  }
+  .container > .containerProgress > .progress > .clip {
+    -webkit-transition: none;
+    transition: none;
+  }
+  .container > .text {
+    width: 65%;
+    margin: 60px auto;
+    -webkit-transform: translateX(0%);
+            transform: translateX(0%);
+  }
+  .container > .text > .par1 > span {
+    -webkit-animation: none;
+            animation: none;
+    text-shadow: 3px 3px 3px black;
+  }
+  .container > .containerProgress > .progress {
+    -webkit-transform: translateX(0%);
+            transform: translateX(0%);
+    width: 65%;
+  }
+  .container > .gridForm > .formBox {
+    width: 65%;
+    -webkit-transition: none;
+    transition: none;
+    background-color: rgba(48, 47, 47, 0.8);
+  }
+  .container > .gridForm > .formBox > h2 {
+    margin-top: 320px;
+  }
+  .container > .gridForm > .formBox > .loader {
+    display: none;
+  }
+  .container > .flug > img {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  body {
+    background-color: #e6e6e6;
+  }
+  .containerSlide > #slider > figure > .img1, .img2, .img3, .img4 {
+    display: none;
+  }
+  .container {
+        grid-template-areas: 'headline' 'inputform' 'progressbar';
+    -ms-grid-columns: 100%;
+        grid-template-columns: 100%;
+    -ms-grid-rows: 20% 80% 0;
+        grid-template-rows: 20% 80% 0;
+  }
+  .container > .containerProgress > .progress {
+    display: none;
+  }
+  .container > .text {
+    width: 100%;
+    margin: 30px auto;
+  }
+  .container > .text > .par2 {
+    font-size: 40px;
+  }
+  .container > .gridForm > .formBox {
+    width: 90%;
+    margin-top: -20px;
+  }
+}
+/*# sourceMappingURL=index.css.map */

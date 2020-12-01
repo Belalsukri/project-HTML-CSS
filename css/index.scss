@@ -1,0 +1,601 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+// scss mixin
+@mixin wa1 {
+    padding: 4px 12px;
+    border-radius: 13px;
+    box-shadow: 0 0 3px 2px rgba(122, 119, 119, 0.616);
+}
+// variables
+$background:linear-gradient(to right, #ff105f,#ffad06);
+
+
+// display:none if you don't want to see the radio buttons
+#rd1, #rd2, #rd3, #rd4 {
+    display: none;
+}
+
+/* container for background slides */
+.containerSlide {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    background-position: center;
+    background-size: cover;
+    position: fixed;
+  
+    &>#slider {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      overflow: hidden;
+  
+        /* container for four images */
+        &>figure {
+            position: relative;
+            width: 400%;
+            height: 100%;
+            margin: 0;
+            left: 0;
+            text-align: left;
+            font-size: 0;
+            animation: 30s slidy infinite;
+
+            /* images */
+            &>.img1,.img2,.img3,.img4 {
+                width: 25%;
+                height: 100%;
+                position: relative;
+                float: left;
+                background-size: cover;
+            }
+            &>.img1 { 
+                background-image: url(../images/background01.jpg);
+                float: 25%;
+                &:hover {
+                    filter: contrast(1.6);
+                }
+            }
+            &>.img2 { 
+                background-image: url(../images/background02.jpeg);
+                left: 50%;
+                &:hover {
+                    filter: contrast(1.4);
+                }
+            }
+            &>.img3 {
+                background-image: url(../images/background05.jpg);
+                left: 75%;
+                &:hover {
+                    filter: contrast(1.9);
+                }
+            }
+            &>.img4 {
+                background-image: url(../images/background04.jpeg);
+                left: 100%;
+                background-position: center;
+                &:hover {
+                    filter: sepia(0.3);
+                }
+            }
+        }
+    }
+}
+
+
+// container for all elements besides background and inputs
+.container {
+    height: 100vh;
+    width: 100vw;
+    background-position: center;
+    background-size: cover;
+    overflow-x: hidden;
+    position: relative;
+    display: grid;
+    grid-template-areas: 'progressbar inputform' 'headline inputform';
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 33% 67%;
+
+    // container for progress bar
+    &>.containerProgress {
+        grid-area: progressbar;
+
+        &>.progress {
+            position: relative;
+            width: 65%;
+            height: 40px;
+            margin: 133px auto;
+            transform: translateX(17.5%);
+            display: flex;
+            background: rgba(170, 167, 167, 0.76);
+            border-radius: 4px;
+            padding: 5px;
+            text-align: center;
+            transition: 0.7s linear;
+            box-shadow: 5px 5px 5px gray, -3px -3px 8px gray;
+
+            &>.p1 {
+                position: relative;
+                width: 33.33%;
+                height: 30px;
+                background-color: rgb(7, 223, 7);
+                display: none;
+                z-index: -1;
+                color: white;
+                text-shadow: 2px 2px 1px rgb(47, 47, 47);
+                padding: 5px;
+                clip-path: polygon(92.5% 0%, 100% 50%, 92.5% 100%, 0% 100%, 0% 0%, 0% 0%);
+            }
+            &>.p2 {
+                position: relative;
+                width: 33.33%;
+                height: 30px;
+                background-color: rgb(1, 161, 1);
+                display: none;
+                z-index: -1;
+                color: rgb(255, 255, 255);
+                text-shadow: 2px 2px 1px rgb(0, 0, 0);
+                padding: 5px;
+                clip-path: polygon(92.5% 0%, 100% 50%, 92.5% 100%, 0% 100%, 10% 50%, 0% 0%);
+            }
+            &>.p3 {
+                position: relative;
+                width: 33.33%;
+                height: 30px;
+                background-color:blue;
+                display: none;
+                z-index: -1;
+                color: white;
+                text-shadow: 2px 2px 1px rgb(47, 47, 47);
+                padding: 5px;
+                clip-path: polygon(92.5% 0%, 100% 50%, 92.5% 100%, 0% 100%, 10% 50%, 0% 0%);
+            }
+            &>.clip {
+                width: 9%;
+                height: 25px;
+                margin: 2.5px;
+                position: absolute;
+                left: 0;
+                clip-path: polygon(75% 0%, 100% 50%, 75% 100%, 0% 100%, 25% 50%, 0% 0%);
+                background-color: rgb(13, 13, 14);
+                border-radius: 5px 5px;
+                z-index: 10;
+                transition: 0.7s linear;
+            }
+            &>.progress-bar {
+                clip-path: polygon(97.5% 0%, 100% 50%, 97.5% 100%, 0% 100%, 0% 0%, 0% 0%);
+                position: absolute;
+                height: 30px;
+                border-radius: 4px;
+                background-image: linear-gradient(45deg, rgba(236, 207, 207, 0.3), rgba(255, 255, 255, 0.05));
+                transition: 0.7s linear;
+                transition-property: width,background-color;
+                box-shadow: 0 0 1px 1px rgba(179, 178, 178, 0.25), inset 0 1px rgba(255, 255, 255, 0.1);
+            }  
+        }
+    }
+
+
+    // headline to the left
+    &>.text {
+        grid-area: headline;
+        width: 65%;
+        margin: 65px auto;
+        transform: translateX(17.5%);
+        text-align: center;
+        z-index: 1;
+
+        &>.par1>span {
+            color: #8ee4eb;
+            font-size: 50px;
+            font-style:italic;
+            font-weight: bold;
+            font-family: 'Kaushan Script', cursive;
+            animation: animate 2s linear infinite;
+        }
+        &>.par1>span:nth-child(1) {
+            animation-delay: 0s;
+        }
+        &>.par1>span:nth-child(2) {
+            animation-delay: 0.25s;
+        }
+        &>.par1>span:nth-child(3) {
+            animation-delay: .5s;
+        }
+        @keyframes animate {
+            0%,100% {
+                color: #78abe6;
+                filter: blur(2px);
+                text-shadow: 0 0 30px #00b3ff, 0 0 60px #00b3ff, 0 0 100px #00b3ff;
+            }
+            5%,95% {
+                color: #b1eff5;
+                filter: blur(0);
+                text-shadow: 0 0 10px black;
+            }
+        }
+        &>.par2 {
+            color:#a0a563;
+            font-family: 'Allura', cursive;
+            font-size: 45px;
+            font-weight: bold;
+            font-style: italic;
+            text-shadow: 3px 3px 3px rgb(0, 0, 0);
+        }
+    }
+
+
+    // Register form box to the right
+    &>.gridForm {
+        grid-area: inputform;
+        position: relative;
+
+        &>.formBox {
+            position: absolute;
+            width: 62%;
+            height: 550px;
+            right: 50%;
+            top: 14%;
+            transform: translateX(50%);
+            padding: 5px;
+            background-color: rgba(48, 47, 47, 0.664);
+            @include wa1();
+            overflow: hidden;
+            display: none;
+            transition: right 1s;
+
+            // headline
+            &>h1 {
+                font-size: 40px;
+                color: #a0a563;
+                text-shadow: 2px 2px 2px rgb(255, 255, 255);
+                text-align: center;
+                margin-top: 53px;
+            }
+
+            // Input-fields
+            &>.inputGroup {
+                width: 83%;
+                top: 30%;
+                position: absolute;
+                
+                &>label {
+                    font-size: 20px;
+                    margin-left: 20px;
+                    color: rgb(140, 240, 120);
+                } 
+                    
+                &>input[type= "text"] {
+                    margin: 1px 20px ;
+                    width: 80%;
+                    height: 30px;
+                    color: rgb(212, 236, 73);
+                    background: transparent;
+                    border-top: 0;
+                    border-left: 0;
+                    border-right: 0;
+                    border-bottom: outset;
+                    background-color: rgba(185, 164, 164, 0.637);
+                }
+                &>::placeholder {
+                    color: rgb(168, 221, 241);
+                }
+                &>.male {
+                    font-size: 17px;
+                }
+            }  
+
+            // Next-Button
+            &>.rd1 {
+                @include wa1 ();
+                color: rgb(255, 255, 255);
+                font-size: 22px;
+                font-weight: bold;
+                float: right;
+                margin-right: 10px;
+                margin-left: 15px;
+                margin-top: 390px;
+                box-shadow: inset -20px -8px 8px 15px rgb(108, 143, 75);
+                text-shadow: 3px 3px 2px rgb(2, 2, 2);
+                background: transparent;
+            }
+
+            // Previous-Button
+            &>.pre1 {
+                @include wa1 ();
+                color: rgba(255, 255, 255, 0.835);
+                font-size: 22px;
+                font-weight: bold;
+                float: right;
+                margin-top: 390px;
+                box-shadow: inset -20px -8px 8px 15px rgb(108, 143, 75);
+                text-shadow: 3px 3px 2px rgb(2, 2, 2);
+            }
+
+            // tick mark image at the end
+            &>img {
+                width: 150px;
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%,-50%);
+            }
+
+            // animation for the tick mark at the end
+            &>.loader {
+                width: 129px;
+                height: 129px;
+                margin: 108px auto;
+                border-radius: 50%;
+                background: linear-gradient(2deg, transparent, transparent 90%, #e5f403);
+                animation: animat 2s linear infinite;
+            }
+            @keyframes animat {
+                0% {
+                    transform: rotate(0deg);
+                    filter: hue-rotate(0deg);
+                }
+                100% {
+                    transform: rotate(360deg);
+                    filter: hue-rotate(360deg);
+                }
+            }
+            // 'Thank You For Registering' on the last page
+            &>h2 {
+                font-size: 25px;
+                color:  #a0a563;
+                text-shadow: 3px 4px 3px rgb(2, 2, 2);
+                text-align: center;
+                margin-top: -62px;
+            }  
+        }
+    }
+
+    // Airplane
+    &>.flug>img {
+        width: 100px;
+        height: 100px;
+        position: absolute;
+        top: 40vh;
+        animation-name: FBW5;
+        animation-duration: 6s;
+        animation-iteration-count: infinite;
+    }
+    // keyframes for plane-animation
+    @keyframes FBW5 {
+        0% {
+            width: 120px;
+            left: -15px;
+            top: 20vh;
+        }
+        100% {
+            width: 300px;
+            left: 60%;
+            top: -20vh;
+        }
+    }
+}
+
+
+// actions for buttons
+// actions for background slider
+#rd1:checked ~ .containerSlide > #slider > figure > div {
+    left: 0%;
+    transition: all 1s ease-in-out
+}
+#rd2:checked ~ .containerSlide > #slider > figure > div {
+    left: -25%;
+    transition: all 1s ease-in-out
+}
+#rd3:checked ~ .containerSlide > #slider > figure > div {
+    left: -50%;
+    transition: all 1s ease-in-out
+}
+#rd4:checked ~ .containerSlide > #slider > figure > div {
+    left: -75%;
+    transition: all 1s ease-in-out
+} 
+
+// actions for progress bar
+#rd2:checked ~ .container > .containerProgress > .progress > .n1 {
+    display: block;
+    z-index: 8;
+    transition: 0.7s linear;
+    background-color: rgb(224, 67, 67);
+    animation-name: bel;
+    animation-duration: 2s;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+}
+@keyframes bel{
+    0%{
+      background-color: rgb(248, 1, 1);
+    }
+    100%{
+      background-color: rgb(163, 1, 1);
+    }
+}
+#rd3:checked ~ .container > .containerProgress > .progress > .n2 {
+    background-color: rgb(250, 250, 78);
+    display: block;
+    z-index: 8;
+    transition: 0.7s linear;
+    animation-name: bela;
+    animation-duration: 2s;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+}
+@keyframes bela{
+    0%{
+      background-color: rgb(231, 231, 5);
+    }
+    100%{
+      background-color: rgb(243, 168, 6);
+    }
+}
+#rd4:checked ~ .container > .containerProgress > .progress > .n2 {
+    display: block;
+    z-index: 8;
+    transition: 0.7s linear;
+} 
+#rd4:checked ~ .container > .containerProgress > .progress > .n1 {
+    display: block;
+    z-index: 8;
+}
+#rd3:checked ~ .container > .containerProgress > .progress > .p1 {
+    display: block;
+    z-index: 8;
+    transition: 0.7s linear;
+}
+#rd3:checked ~ .container > .containerProgress > .progress > .p2 {
+    display: block;
+    z-index: 4;
+} 
+#rd4:checked ~ .container > .containerProgress > .progress > .p3 {
+    display: block;
+    background-color: green;
+    z-index: 4;
+}  
+#rd1:checked ~ .container > .containerProgress .progress {
+    width: 0;
+    background-color: #fdf8f600;
+    height: 0;  
+}
+#rd1:checked ~ .container > .containerProgress > .progress > .clip {
+    display: none;
+    background-color: rgba(255, 236, 247, 0);
+    border: 2px solid rgba(204, 116, 116, 0.295)
+}
+#rd2:checked ~ .container > .containerProgress > .progress > .clip {
+    left: 23.5%;
+    background-color: rgba(102, 19, 4, 0.719);
+    border: 1px solid rgba(20, 20, 20, 0.021);
+}
+#rd3:checked ~ .container > .containerProgress > .progress > .clip {
+    left: 56.0%;
+    background-color:rgba(170, 127, 10, 0.89);
+    border: 1px solid rgba(2, 2, 2, 0.014);
+}
+#rd4:checked ~ .container > .containerProgress > .progress > .clip {
+    left: 88.5%;
+    background-color:rgba(5, 75, 3, 0.822);
+    border: 1px solid rgba(0, 0, 0, 0.082);
+}
+
+// actions for register form slides
+#rd1:checked ~ .container > .gridForm > #formBox1 {
+    display: block;
+}
+#rd2:checked ~ .container > .gridForm > #formBox1 {
+    display: block;
+    right:-50%;  
+}
+#rd2:checked ~ .container > .gridForm > #formBox2 {
+    display: block;
+}
+#rd3:checked ~ .container > .gridForm > #formBox2 {
+    display: block;
+    right:-50%; 
+}
+#rd3:checked ~ .container > .gridForm > #formBox3 {
+    display: block;
+}
+#rd4:checked ~ .container > .gridForm > #formBox3 {
+    display: block;
+    right:-50%; 
+}
+#rd4:checked ~ .container > .gridForm > #formBox4 {
+    display: block;
+}
+
+
+// media queries
+
+// turn off effects
+// @media screen and (max-width: 1280px) {
+//     .container >.text >.par1>span {
+//         animation: none;
+//     }
+//     .container > .flug > img {
+//         display: none;
+//     }
+// }
+
+// media queries for tablets
+@media screen and (max-width: 768px) {
+    .containerSlide > #slider > figure > .img1,.img2,.img3,.img4 {
+        filter: grayscale(70%);
+    }
+    .container {
+        grid-template-areas: 'headline' 'progressbar' 'inputform';
+        grid-template-columns: 100%;
+        grid-template-rows: 15% 15% 70%;
+    }
+    .container > .containerProgress >.progress {
+        transition: none;
+    }
+    .container > .containerProgress >.progress >.clip {
+        transition: none;
+    }
+    .container > .text {
+        width: 65%;
+        margin: 60px auto;
+        transform: translateX(0%);
+    }
+    .container > .text > .par1 > span {
+        animation: none;
+        text-shadow: 3px 3px 3px rgb(0, 0, 0);
+    }
+    .container > .containerProgress > .progress {
+        transform: translateX(0%);
+        width: 65%;
+    }
+    .container > .gridForm > .formBox {
+        width: 65%;
+        transition: none;
+        background-color: rgba(48, 47, 47, 0.8);
+    }
+    .container > .gridForm > .formBox > h2 { 
+        margin-top: 320px;
+    }
+    .container > .gridForm > .formBox > .loader {
+        display: none;
+    }
+    .container > .flug > img {
+        display: none;
+    }
+}
+
+// media queries for smartphones
+@media screen and (max-width: 480px) {
+    body {
+    background-color: rgb(230, 230, 230);
+    }
+    .containerSlide >#slider >figure >.img1,.img2,.img3,.img4 {
+        display: none;
+    }
+    .container {
+        grid-template-areas: 'headline' 'inputform' 'progressbar';
+        grid-template-columns: 100%;
+        grid-template-rows: 20% 80% 0;
+    }
+    .container > .containerProgress >.progress {
+        display: none;
+    }
+    .container >.text {
+        width: 100%;
+        margin: 30px auto;
+    }
+    .container >.text > .par2{
+        font-size: 40px;
+    }
+    .container > .gridForm > .formBox {
+        width: 90%;
+        margin-top: -20px;
+    }
+}

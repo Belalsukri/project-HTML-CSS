@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Register</title>
+    <link rel="stylesheet" href="./css/index.css">
+    <link href="https://fonts.googleapis.com/css?family=Kaushan+Script&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Allura|Kaushan+Script&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- inputs -->
+    <input type="radio" id="rd1" name="rd1" checked>
+    <input type="radio" id="rd2" name="rd1">
+    <input type="radio" id="rd3" name="rd1">
+    <input type="radio" id="rd4" name="rd1">
+
+    <!-- container for background slides -->
+    <div class="containerSlide">
+        <div id="slider">
+            <figure>
+                <div class="img1"> 
+                    <label for="rd1" class="rd1">Next</label>
+                </div>
+                <div class="img2">
+                    <label for="rd2" class="rd1">Next</label>
+                </div>
+                <div class="img3">
+                    <label for="rd3" class="rd1">Next</label>
+                </div>
+                <div class="img4">
+                    <label for="rd4" class="rd1">Next</label>
+                </div>
+            </figure>
+        </div>
+    </div>
+
+    <!-- container contains progress bar, headline, register slide, plane -->
+    <div class="container">
+
+        <!-- container for progress bar -->
+        <div class="containerProgress">
+            <div class="progress">
+                <p class="p1 n1">Second Step</p>
+                <p class="p2 n2">Third Step</p>
+                <p class="p3 n3">Finish</p>
+                <span class="clip"></span>
+                <div class="progress-bar"></div>
+            </div>
+        </div>
+
+        <!-- headline to the left -->
+        <div class="text">
+            <p class="par1"><span>We</span> &nbsp; <span>Are</span>&nbsp; <span>Travel</span></p>
+            <br>
+            <p class="par2">All your trips in one place.</p>
+        </div>
+
+        <div class="gridForm">
+            <!-- First Register Slide -->
+            <div id="formBox1"  class="formBox">
+                <h1>Register</h1>
+                <form id="log" class="inputGroup">
+                    <label for="inputField">First Name:</label>
+                    <input type="text" id="inputField" placeholder="First Name" required >
+                    <br><br><br>
+                    <label for="inputField1">Last Name:</label>
+                    <input type="text" id="inputField1" placeholder="Last Name" required >
+                    <br><br><br><br>
+                    <label for="radio" class="male">Male</label>
+                    <input type="radio" id="radio" name="radio" >
+                    <label for="radio1" class="male">Female</label>
+                    <input type="radio" id="radio1" name="radio">    
+                </form>
+                <label for="rd2" class="rd1">Next</label>       
+            </div>
+
+            <!-- Second Register Slide -->
+            <div id="formBox2"  class="formBox">
+                <h1>Register</h1>
+                <form id="log" class="inputGroup">
+                    <label for="email">E-Mail:</label>
+                    <input type="text" id="email" placeholder="E-Mail" required >  
+                    <br><br><br>
+                    <label for="email1">Password:</label>
+                    <input type="text" id="email1" placeholder="Password" required >
+                    <br><br><br>
+                    <label for="email2">Password Repeat:</label>
+                    <input type="text" id="email2" placeholder="Password Repeat" required>
+                </form>
+                <label for="rd3" class="rd1">Next</label> 
+                <label for="rd1" class="pre1">Previous</label>
+            </div>
+
+            <!-- Third Register Slide -->
+            <div id="formBox3" class="formBox">
+                <h1>Register</h1>
+                <form id="log" class="inputGroup">
+                    <label for="phon">Address:</label>
+                    <input type="text" id="phon" placeholder="Address" required >
+                    <br><br><br>
+                    <label for="phon1">City:</label>
+                    <input type="text" id="phon1" placeholder="City" required >
+                    <br><br><br>
+                    <label for="phon2">Phone:</label>
+                    <input type="text" id="phon2" placeholder="Phone" required >
+                </form>
+                <label for="rd4" class="rd1">Submit</label>
+                <label for="rd2" class="pre1">Previous</label>
+            </div>
+
+            <!-- Fourth Register Slide -->
+            <div id="formBox4"  class="formBox">
+                <h1>Welcome</h1>
+                <img class="img1" src="./images/Tick_Mark_Dark-512.png" alt="">
+                <div class="loader"></div>
+                <h2>Thank You For Registering</h2>
+            </div>
+        </div>
+        
+        <!-- animated plane -->
+        <div class="flug"><img src="./images/flugzeug-1.png" alt=""></div>
+
+    </div>
+
+</body>
+</html>
